@@ -1,0 +1,39 @@
+<header class="navbar">
+  <div class="logo">♻️ BinSorter A.M.G.</div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#clasificador">Clasificador</a>
+    <a href="#gamificacion">Gamificación</a>
+  </nav>
+</header>
+<section id="inicio" class="hero">
+  <h1>{{ tituloProyecto }}</h1>
+  <p>{{ descripcionProyecto }}</p>
+  <button (click)="explorar()">¡Empezar a reciclar!</button>
+</section>
+<section id="clasificador" class="card">
+  <h2>Simulador de Clasificación</h2>
+  <p>Selecciona un residuo para saber dónde reciclarlo y ganar puntos:</p>
+  
+  <div class="botones-residuos">
+    <button (click)="clasificar('Botella de Plástico', 'Caneca Blanca (Aprovechable)', 10)">Botella de Plástico</button>
+    <button (click)="clasificar('Cáscara de Fruta', 'Caneca Verde (Orgánicos)', 5)">Cáscara de Fruta</button>
+    <button (click)="clasificar('Papel Sucio', 'Caneca Negra (No aprovechable)', 2)">Papel Sucio</button>
+  </div>
+
+  <div *ngIf="residuoSeleccionado" class="resultado">
+    <p><strong>Residuo:</strong> {{ residuoSeleccionado }}</p>
+    <p><strong>Destino:</strong> {{ destinoSugerido }}</p>
+    <p class="puntos">+ {{ puntosGanados }} puntos obtenidos 🌟</p>
+  </div>
+</section>
+<section id="gamificacion" class="card">
+  <h2>Tus Puntos y Rango Actual</h2>
+  <div class="puntuacion-box">
+    <p>Puntuación total: <strong>{{ puntajeTotal }} pts</strong></p>
+    <p>Tu Rango: <span class="badge">{{ obtenerRango() }}</span></p>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2026 BinSorter A.M.G. - Conciencia Ambiental en el Campus</p>
+</footer>
